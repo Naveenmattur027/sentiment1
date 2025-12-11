@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: moodmate
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        value: your_random_secret_key_here
+      - key: JWT_SECRET_KEY
+        value: your_random_jwt_secret_key_here
+      - key: DEFAULT_USERNAME
+        value: testuser
+      - key: DEFAULT_EMAIL
+        value: test@example.com
+      - key: DEFAULT_PASSWORD
+        value: password123
+      - key: CREATE_DAMI_ACCOUNT
+        value: "false"
